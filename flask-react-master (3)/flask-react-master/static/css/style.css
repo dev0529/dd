@@ -1,0 +1,15 @@
+.video {
+  position: absolute;
+  left: 100;
+  bottom: 0;
+  width: 30px;
+  height: 10px;
+  autoplay : false;
+}
+
+.table td {
+    width: 30px;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+}

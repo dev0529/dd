@@ -4,10 +4,10 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width">
         <title>Peer-to-Peer Cue System --- Reciever</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     </head>
     <body>
-        <table class="display">
+        <table class="display" style="width: 100px;">
             <tr>
                 <td class="title">Status:</td>
                 <td class="title">Messages:</td>
@@ -27,7 +27,7 @@
                 <td><div class="message" id="message"></div></td>
             </tr>
             <tr>
-                <td colspan="2" class="display-box standby" id="video_grid">
+                <td colspan="2" class="display-box standby" id="video_grid" style="width:160px; border:5px">
 
                 </td>
             </tr>
@@ -38,7 +38,7 @@
             (function () {
 
                 var lastPeerId = null;
-                var peer = null; // Own peer object
+                var peer = null; // Own peer
                 var peerId = null;
                 var hostStream = null;
              
@@ -129,6 +129,7 @@
                         addVideo(stream);
 
                         hostStream = stream;
+
                     }, function(err) {
                         console.log('Failed to get local stream' ,err);
                     });
@@ -232,11 +233,13 @@
                     var videoTag = document.createElement("video");
                     videoTag.srcObject = stream;
                     videoTag.muted = true;
-                    videoTag.autoplay = true;
+                    videoTag.autoplay = true
+                    videoTag.setAttribute("width","50px");
                     // videoTag.addEventListener("loadedmetadata", () => {
                     //     videoTag.play();
                     // });
                     document.getElementById("video_grid").append(videoTag);
+
                 }
 
                 function addMessage(msg) {
